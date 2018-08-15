@@ -102,3 +102,9 @@ ENV/
 
 # MacOS
 .DS_Store
+.idea/
+
+leetcodejvm/.gradle/
+leetcodejvm/gradlew
+leetcodejvm/gradlew.bat
+leetcodejvm/out/*
