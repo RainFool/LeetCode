@@ -40,8 +40,10 @@ class Solution(object):
                 p.next = ListNode((l1.val + flag) % 10)
                 flag = (l1.val + flag) /10
                 l1 = l1.next; p = p.next
-        if flag == 1; p.next = ListNode(1)
+        if flag == 1 :
+            p.next = ListNode(1)
         return dummy.next
 
 if __name__ == "__main__":
-    main()
+    # main()
+    pass
