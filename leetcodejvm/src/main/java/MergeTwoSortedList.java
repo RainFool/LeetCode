@@ -27,7 +27,7 @@ public class MergeTwoSortedList {
                 itr.next = l1;
                 l1 = l1.next;
             } else {
-                if (l1.val < l2.val) {
+                if (l1.value < l2.value) {
                     itr.next = l1;
                     l1 = l1.next;
                 } else {
@@ -40,12 +40,4 @@ public class MergeTwoSortedList {
         return listNode.next;
     }
 
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 }
