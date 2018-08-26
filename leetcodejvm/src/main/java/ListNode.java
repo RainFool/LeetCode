@@ -1,8 +1,8 @@
 public class ListNode {
-    int value;
+    int val;
     ListNode next;
 
     ListNode(int x) {
-        value = x;
+        val = x;
     }
 }

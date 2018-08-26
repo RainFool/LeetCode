@@ -31,7 +31,7 @@ class MergeTwoSortedListKT {
                 itr.next = l1
                 l1 = l1.next
             } else {
-                if (l1!!.value < l2!!.value) {
+                if (l1!!.`val` < l2!!.`val`) {
                     itr.next = l1
                     l1 = l1.next
                 } else {

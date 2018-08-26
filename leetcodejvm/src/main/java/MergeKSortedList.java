@@ -1,4 +1,18 @@
-public class MergeTwoSortedList {
+public class MergeKSortedList {
+    public ListNode mergeKLists(ListNode[] listNodes) {
+        if (listNodes == null || listNodes.length == 0) {
+            return null;
+        }
+        int n = listNodes.length;
+        while (n > 1) {
+            int k = (n + 1) / 2;
+            for (int i = 0; i < n / 2; i++) {
+                listNodes[i] = mergeTwoLists(listNodes[i], listNodes[i + k]);
+            }
+            n = k;
+        }
+        return listNodes[0];
+    }
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
@@ -36,5 +50,4 @@ public class MergeTwoSortedList {
         }
         return listNode.next;
     }
-
 }

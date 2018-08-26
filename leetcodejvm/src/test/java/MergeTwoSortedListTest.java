@@ -47,7 +47,7 @@ public class MergeTwoSortedListTest {
         }
         StringBuilder stringBuilder = new StringBuilder();
         do {
-            stringBuilder.append(listNode.value);
+            stringBuilder.append(listNode.val);
             stringBuilder.append(",");
             listNode = listNode.next;
         } while (listNode != null);
