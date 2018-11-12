@@ -1,3 +1,7 @@
+package array
+
+import ListNode
+
 class MergeTwoSortedListKT {
 
     fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? {
@@ -16,6 +20,8 @@ class MergeTwoSortedListKT {
     private fun mergeTwoListsInner(listNode1: ListNode, listNode2: ListNode): ListNode {
         var itr = ListNode(Int.MIN_VALUE)
         val listNode = itr
+
+
 
         var l1: ListNode? = listNode1
         var l2: ListNode? = listNode2
