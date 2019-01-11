@@ -27,6 +27,6 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 * */
 class BestTimeToBuyAndSellStock3 {
     fun maxProfit(prices: IntArray): Int {
-
+        return 0
     }
 }
