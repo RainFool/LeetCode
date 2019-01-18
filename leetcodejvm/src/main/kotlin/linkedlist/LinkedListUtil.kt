@@ -18,6 +18,11 @@ fun intListToLinkedList(list: List<Int>): ListNode? {
 }
 
 fun ListNode.print() {
+    val sb = buildPrintString()
+    println(sb)
+}
+
+fun ListNode.buildPrintString(): String {
     val sb = StringBuilder()
     var cur: ListNode? = this
     do {
@@ -26,5 +31,5 @@ fun ListNode.print() {
         cur = cur?.next
     } while (cur != null)
     sb.append("NULL")
-    println(sb)
+    return sb.toString()
 }
