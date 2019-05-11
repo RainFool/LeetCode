@@ -1,6 +1,6 @@
 package array
 
-import ListNode
+import base.ListNode
 
 class MergeTwoSortedListKT {
 

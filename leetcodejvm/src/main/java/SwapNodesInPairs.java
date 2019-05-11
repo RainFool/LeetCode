@@ -1,3 +1,5 @@
+import base.ListNode;
+
 public class SwapNodesInPairs {
     public ListNode swapPairs(ListNode head) {
         if (head == null) {

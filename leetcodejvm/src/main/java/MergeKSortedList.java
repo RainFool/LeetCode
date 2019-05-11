@@ -1,3 +1,5 @@
+import base.ListNode;
+
 public class MergeKSortedList {
     public ListNode mergeKLists(ListNode[] listNodes) {
         if (listNodes == null || listNodes.length == 0) {
