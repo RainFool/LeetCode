@@ -24,7 +24,6 @@ class RemoveDuplicatesFromSortedArrayTest {
         assertEquals(6, core.removeDuplicates(dataList3.toIntArray()))
         assertEquals(0, core.removeDuplicates(dataList4.toIntArray()))
         assertEquals(2, core.removeDuplicates(dataList5.toIntArray()))
-
     }
 
 }
