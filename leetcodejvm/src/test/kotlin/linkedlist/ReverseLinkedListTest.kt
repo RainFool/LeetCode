@@ -27,10 +27,10 @@ class ReverseLinkedListTest {
 
     @Test
     fun reverse() {
-        reverser.reverse(l1)?.print()
-        reverser.reverse(l2)?.print()
-        reverser.reverse(l3)?.print()
-        reverser.reverse(l4)?.print()
-        reverser.reverse(l5)?.print()
+//        reverser.reverse(l1)?.print()
+//        reverser.reverse(l2)?.print()
+//        reverser.reverse(l3)?.print()
+//        reverser.reverse(l4)?.print()
+//        reverser.reverse(l5)?.print()
     }
 }
