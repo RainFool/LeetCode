@@ -1,22 +1,22 @@
-import base.ListNode;
+import base.Node;
 
 public class MergeKSortedList {
-    public ListNode mergeKLists(ListNode[] listNodes) {
-        if (listNodes == null || listNodes.length == 0) {
+    public Node mergeKLists(Node[] nodes) {
+        if (nodes == null || nodes.length == 0) {
             return null;
         }
-        int n = listNodes.length;
+        int n = nodes.length;
         while (n > 1) {
             int k = (n + 1) / 2;
             for (int i = 0; i < n / 2; i++) {
-                listNodes[i] = mergeTwoLists(listNodes[i], listNodes[i + k]);
+                nodes[i] = mergeTwoLists(nodes[i], nodes[i + k]);
             }
             n = k;
         }
-        return listNodes[0];
+        return nodes[0];
     }
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public Node mergeTwoLists(Node l1, Node l2) {
 
         if (l1 == null && l2 == null) {
             return null;
@@ -28,9 +28,9 @@ public class MergeKSortedList {
             return l1;
         }
 
-        ListNode listNode;
-        ListNode itr = new ListNode(Integer.MIN_VALUE);
-        listNode = itr;
+        Node node;
+        Node itr = new Node(Integer.MIN_VALUE);
+        node = itr;
 
         while (l1 != null || l2 != null) {
             if (l1 == null) {
@@ -50,6 +50,6 @@ public class MergeKSortedList {
             }
             itr = itr.next;
         }
-        return listNode.next;
+        return node.next;
     }
 }

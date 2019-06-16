@@ -1,4 +1,4 @@
-import base.ListNode;
+import base.Node;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,9 +15,9 @@ public class SwapNodesInPairsTest {
 
     @Test
     public void testSwapNodes() {
-        ListNode listNode = ListNodeHelper.buildListNode(values);
-        ListNode result = new SwapNodesInPairs().swapPairsRecu(listNode);
-        System.out.println(ListNodeHelper.generateListNodeString(result));
+        Node node = NodeFactory.buildListNode(values);
+        Node result = new SwapNodesInPairs().swapPairsRecu(node);
+        System.out.println(NodeFactory.generateListNodeString(result));
     }
 
 }

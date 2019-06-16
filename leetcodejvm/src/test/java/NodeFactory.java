@@ -1,17 +1,17 @@
-import base.ListNode;
+import base.Node;
 import org.jetbrains.annotations.Nullable;
 
-public class ListNodeHelper {
+public class NodeFactory {
     @Nullable
-    public static ListNode buildListNode(int[] input) {
-        ListNode first = null;
-        ListNode last = null;
-        ListNode newNode;
+    public static Node buildListNode(int[] input) {
+        Node first = null;
+        Node last = null;
+        Node newNode;
         if (input.length <= 0) {
             return null;
         }
         for (int anInput : input) {
-            newNode = new ListNode(anInput);
+            newNode = new Node(anInput);
             newNode.next = null;
             if (first == null) {
                 first = newNode;
@@ -25,16 +25,16 @@ public class ListNodeHelper {
         return first;
     }
 
-    public static String generateListNodeString(ListNode listNode) {
-        if (listNode == null) {
+    public static String generateListNodeString(Node node) {
+        if (node == null) {
             return "[null]";
         }
         StringBuilder stringBuilder = new StringBuilder();
         do {
-            stringBuilder.append(listNode.val);
+            stringBuilder.append(node.val);
             stringBuilder.append(",");
-            listNode = listNode.next;
-        } while (listNode != null);
+            node = node.next;
+        } while (node != null);
         return stringBuilder.toString();
     }
 }

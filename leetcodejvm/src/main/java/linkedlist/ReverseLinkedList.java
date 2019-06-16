@@ -1,18 +1,18 @@
 package linkedlist;
 
-import base.ListNode;
+import base.Node;
 
 public class ReverseLinkedList {
-    public ListNode reverseList(ListNode head) {
+    public Node reverseList(Node head) {
         if (head == null || head.next == null) {
             return head;
         }
 
-        ListNode dummy = new ListNode(0);
+        Node dummy = new Node(0);
 
         dummy.next = head;
-        ListNode cur = head;
-        ListNode next = head.next;
+        Node cur = head;
+        Node next = head.next;
 
         while (next != null) {
             cur.next = next.next;

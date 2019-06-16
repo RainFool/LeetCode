@@ -1,17 +1,17 @@
-import base.ListNode;
+import base.Node;
 
 public class SwapNodesInPairs {
-    public ListNode swapPairs(ListNode head) {
+    public Node swapPairs(Node head) {
         if (head == null) {
             return null;
         }
-        ListNode temp = new ListNode(-1);
+        Node temp = new Node(-1);
         temp.next = head;
-        ListNode cur = temp;
+        Node cur = temp;
         while (cur.next != null && cur.next.next != null) {
-            ListNode pre = cur.next;
-            ListNode mid = cur.next.next;
-            ListNode las = cur.next.next.next;
+            Node pre = cur.next;
+            Node mid = cur.next.next;
+            Node las = cur.next.next.next;
 
             cur.next = mid;
             mid.next = pre;
@@ -22,11 +22,11 @@ public class SwapNodesInPairs {
         return temp.next;
     }
 
-    public ListNode swapPairsRecu(ListNode head) {
+    public Node swapPairsRecu(Node head) {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode temp = head.next;
+        Node temp = head.next;
         head.next = swapPairsRecu(head.next.next);
         temp.next = head;
         return temp;

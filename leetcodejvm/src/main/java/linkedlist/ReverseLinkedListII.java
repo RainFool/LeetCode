@@ -1,6 +1,6 @@
 package linkedlist;
 
-import base.ListNode;
+import base.Node;
 
 public class ReverseLinkedListII {
 
@@ -9,22 +9,22 @@ public class ReverseLinkedListII {
 
     // first reversing : dummy->1 - 3 - 2 - 4 - 5; pre = 1, start = 2, then = 4
     // second reversing: dummy->1 - 4 - 3 - 2 - 5; pre = 1, start = 2, then = 5 (finish)
-    public ListNode reverseBetween(ListNode head, int m, int n) {
+    public Node reverseBetween(Node head, int m, int n) {
         if (n == 1 || m == n) {
             return head;
         }
 
-        ListNode dump = new ListNode(-1);
+        Node dump = new Node(-1);
         dump.next = head;
 
-        ListNode pre = dump;
+        Node pre = dump;
 
         for (int i = 0; i < m-1; i++) {
             pre = pre.next;
         }
 
-        ListNode start = pre.next;
-        ListNode then = start.next;
+        Node start = pre.next;
+        Node then = start.next;
 
         for (int i = 0; i < n - m; i++) {
             start.next = then.next;

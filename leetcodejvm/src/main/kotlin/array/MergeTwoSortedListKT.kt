@@ -1,10 +1,10 @@
 package array
 
-import base.ListNode
+import base.Node
 
 class MergeTwoSortedListKT {
 
-    fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? {
+    fun mergeTwoLists(l1: Node?, l2: Node?): Node? {
         if (l1 == null && l2 == null) {
             return null
         }
@@ -17,14 +17,14 @@ class MergeTwoSortedListKT {
         return mergeTwoListsInner(l1, l2);
     }
 
-    private fun mergeTwoListsInner(listNode1: ListNode, listNode2: ListNode): ListNode {
-        var itr = ListNode(Int.MIN_VALUE)
+    private fun mergeTwoListsInner(node1: Node, node2: Node): Node {
+        var itr = Node(Int.MIN_VALUE)
         val listNode = itr
 
 
 
-        var l1: ListNode? = listNode1
-        var l2: ListNode? = listNode2
+        var l1: Node? = node1
+        var l2: Node? = node2
 
         while (true) {
             if (l1 == null && l2 == null) {

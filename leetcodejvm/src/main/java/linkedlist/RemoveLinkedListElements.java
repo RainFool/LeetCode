@@ -1,17 +1,17 @@
 package linkedlist;
 
-import base.ListNode;
+import base.Node;
 
 public class RemoveLinkedListElements {
-    public ListNode removeElements(ListNode head, int val) {
+    public Node removeElements(Node head, int val) {
         if (head == null) {
             return null;
         }
-        ListNode dummy = new ListNode(1);
+        Node dummy = new Node(1);
         dummy.next = head;
 
-        ListNode cur = head;
-        ListNode pre = dummy;
+        Node cur = head;
+        Node pre = dummy;
         while (cur != null) {
             if (cur.val == val) {
                 pre.next = cur.next;

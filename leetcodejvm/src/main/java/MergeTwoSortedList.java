@@ -1,8 +1,8 @@
-import base.ListNode;
+import base.Node;
 
 public class MergeTwoSortedList {
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public Node mergeTwoLists(Node l1, Node l2) {
 
         if (l1 == null && l2 == null) {
             return null;
@@ -14,9 +14,9 @@ public class MergeTwoSortedList {
             return l1;
         }
 
-        ListNode listNode;
-        ListNode itr = new ListNode(Integer.MIN_VALUE);
-        listNode = itr;
+        Node node;
+        Node itr = new Node(Integer.MIN_VALUE);
+        node = itr;
 
         while (l1 != null || l2 != null) {
             if (l1 == null) {
@@ -36,7 +36,7 @@ public class MergeTwoSortedList {
             }
             itr = itr.next;
         }
-        return listNode.next;
+        return node.next;
     }
 
 }
