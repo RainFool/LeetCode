@@ -26,30 +26,15 @@ import javax.swing.tree.TreeNode;
  */
 class Solution {
     public int findBottomLeftValue(TreeNode root) {
-        Queue<TreeNode> queue = new LinkedList();
         if (root == null) return 0;
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
-        while(!queue.isEmpty()) {
-            node = queue.poll();
-            for (int i = 0;i < cnt;i++) {
-                TreeNode node = queue.poll();
-                if (i == 0) first = node.val;
-                if (node.left != null) {
-                    isBottom = false;
-
-                    queue.add(node.left);
-                }
-                if (node.right != null) {
-                    isBottom = false;
-                    queue.add(node.right);
-
-                }
-            }
-            if (isBottom) {
-                return first;
-            }
+        while (!queue.isEmpty()) {
+            root = queue.poll();
+            if (root.right != null) queue.add(root.right);
+            if (root.left != null) queue.add(root.left);
         }
-        return 0;
+        return root.val;
     }
 }
 // @lc code=end
