@@ -6,16 +6,17 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Attach",
-      "request": "attach",
-      "hostName": "localhost",
-      "port": "<debug port of the debuggee>"
+      "name": "Launch Solution1",
+      "request": "launch",
+      "mainClass": "Solution1",
+      "projectName": "LeetCode_478fe150"
     },
     {
       "type": "java",
-      "name": "Launch Current File",
+      "name": "Launch Solution",
       "request": "launch",
-      "mainClass": "${file}"
+      "mainClass": "Solution",
+      "projectName": "LeetCode_478fe150"
     }
   ]
 }
