@@ -21,19 +21,19 @@ class Solution {
         if (candidates == null) {
             return ans;
         }
-        dfs(new ArrayList<>(), candidates, target);
+        dfs(new ArrayList<>(), candidates, 0, target);
         return ans;
     }
 
-    private void dfs(List<Integer> list, int[] candidates, int target) {
+    private void dfs(List<Integer> list, int[] candidates, int begin, int target) {
         if (target == 0) {
-            ans.add(list);
+            ans.add(new ArrayList<>(list));
         } else {
-            for (int i = 0; i < candidates.length; i++) {
+            for (int i = begin; i < candidates.length; i++) {
                 int cur = candidates[i];
                 if (cur <= target) {
                     list.add(cur);
-                    dfs(list, candidates, target - cur);
+                    dfs(list, candidates, i, target - cur);
                 }
             }
         }
