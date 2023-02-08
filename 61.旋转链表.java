@@ -1,6 +1,7 @@
 /*
  * @lc app=leetcode.cn id=61 lang=java
- *
+ * 输入：head = [1,2,3,4,5], k = 2
+ * 输出：[4,5,1,2,3]
  * [61] 旋转链表
  */
 
@@ -12,30 +13,27 @@
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null || head.next == null)
-            return head;
-        if (k == 0) {
+        if (k == 0 || head == null || head.next == null) {
             return head;
         }
         ListNode cur = head;
-        for (int i = 0; i < k; i++) {
-            if (cur.next == null) {
-                cur = head;
-            } else {
-                cur = cur.next;
-            }
+        int n = 1;
+        while (cur.next != null) {
+            cur = cur.next;
+            n++;
         }
-        if (cur.next == null) {
+        int newHeadIndex = n - k % n;
+        if (newHeadIndex == n) {
             return head;
         }
-        ListNode newHead = cur.next;
-        cur.next = null;
-        ListNode temp = newHead;
-        while (temp.next != null) {
-            temp = temp.next;
+        cur.next = head;
+        while (newHeadIndex > 0) {
+            cur = cur.next;
+            newHeadIndex--;
         }
-        temp.next = head;
-        return newHead;
+        ListNode ans = cur.next;
+        cur.next = null;
+        return ans;
     }
 }
 // @lc code=end
