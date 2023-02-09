@@ -13,24 +13,22 @@ class Solution {
         if (s == null || s.length() == 0) {
             return 0;
         }
-        int result = 0;
-        for (int i = 0; i < s.length(); i++) {
-            HashSet set = new HashSet<>();
-            set.add(s.charAt(i));
-            int j = i + 1;
-            for (; j < s.length(); j++) {
-                char cur = s.charAt(j);
-                if (set.contains(cur)) {
-                    result = Math.max(result, set.size());
-                    break;
-                }
-                set.add(s.charAt(j));
+        HashMap<Character, Integer> map = new HashMap<>();
+        int left = 0;
+        int right = 0;
+        int max = 0;
+        while (right < s.length()) {
+            System.out.println(s.charAt(right) + ",left:" + left + ",right:" + right);
+            char cur = s.charAt(right);
+            int index = map.getOrDefault(cur, -1);
+            if (index >= 0) {
+                left = Math.max(left, index + 1);
             }
-            if (j == s.length()) {
-                result = Math.max(result, s.length() - i);
-            }
+            map.put(cur, right);
+            max = Math.max(max, right - left + 1);
+            right++;
         }
-        return result;
+        return max;
     }
 }
 // @lc code=end
