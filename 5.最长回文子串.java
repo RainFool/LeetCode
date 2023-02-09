@@ -6,41 +6,35 @@
 
 // @lc code=start
 class Solution {
+    // 0 0 0 1 2 2 2 2
     public String longestPalindrome(String s) {
-        if(s == null || s.length() < 2) {
+        if (s == null || s.length() < 2) {
             return s;
         }
-        String result = "";
-        boolean[][] dp = new boolean[s.length()][s.length()];
-        for (int i = 0;i < s.length();i++) {
-            dp[i][i] = true;
-            result = s.substring(i,i + 1);
-        }
-
-        for (int i = 0;i < s.length() - 1;i++) {
-            if (s.charAt(i) == s.charAt(i+1)) {
-                dp[i][i+1] = true;
-            } else {
-                dp[i][i+1] = false;
+        int start = 0;
+        int end = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int len1 = expand(s, i, i);
+            int len2 = expand(s, i, i + 1);
+            int len = Math.max(len1, len2);
+            if (len > (end - start)) {
+                start = i - (len - 1) / 2;
+                end = i + 1 + len / 2;
             }
         }
 
-        for (int len =3;len<=s.length();len++) {
-            for (int i = 0; i < s.length() - len;i++) {
-                char front = s.charAt(i);
-                char end = s.charAt(i+len - 1);
-                if (front == end) {
-                    dp[i][i+len -1] = dp[i+1][i+len-2];
-                } else {
-                    dp[i][i+len -1] = false;
-                }
-                if(dp[i][i+len-1]) {
-                    result = s.substring(i,i+len);
-                }
+        return s.substring(start, end);
+    }
+
+    private int expand(String s, int left, int right) {
+        while (left >= 0 && right < s.length()) {
+            if (s.charAt(left) != s.charAt(right)) {
+                break;
             }
+            left--;
+            right++;
         }
-        return result;
+        return right - left - 1;
     }
 }
 // @lc code=end
-
