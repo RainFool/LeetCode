@@ -8,27 +8,30 @@ import java.util.Stack;
 
 // @lc code=start
 class Solution {
+
     public int trap(int[] height) {
-        Stack<Integer> stack = new Stack<Integer>();
-        if (height.length < 3) {
+        if (height == null || height.length == 0) {
+            return 0;
+        }
+        int max = 0;
+        for (int i = 0; i < height.length; i++) {
+            max = Math.max(height[i], max);
+        }
+        if (max <= 0) {
             return 0;
         }
         int ans = 0;
-        for (int i = 0; i < height.length; i++) {
-            while (!stack.isEmpty() && height[i] > height[stack.peek()]) {
-                int pop = stack.pop();
-                while (!stack.isEmpty() && height[pop] == height[stack.peek()]) {
-                    stack.pop();
-                }
-                if (!stack.isEmpty()) {
-                    int left = stack.peek();
-                    int h = Math.min(height[left] - height[pop], height[i] - height[pop]);
-                    int w = i - left - 1;
-                    int water = h * w;
-                    ans += water;
+        for (int h = 1; h <= max; h++) {
+            int lastIndex = -1;
+            for (int j = 0; j < height.length; j++) {
+                if (height[j] >= h) {
+                    if (lastIndex >= 0) {
+                        ans += j - lastIndex - 1;
+                    }
+                    lastIndex = j;
                 }
             }
-            stack.push(i);
+            System.out.println("the " + h + "layer,ans" + ans);
         }
         return ans;
     }
