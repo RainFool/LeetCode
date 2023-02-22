@@ -1,14 +1,13 @@
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Stack;
 
 import javax.swing.tree.TreeNode;
 
 /*
- * @lc app=leetcode.cn id=145 lang=java
+ * @lc app=leetcode.cn id=94 lang=java
  *
- * [145] 二叉树的后序遍历
+ * [94] 二叉树的中序遍历
  */
 
 // @lc code=start
@@ -28,25 +27,19 @@ import javax.swing.tree.TreeNode;
  * }
  */
 class Solution {
-    public List<Integer> postorderTraversal(TreeNode root) {
+    public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
-        TreeNode cur = root;
-        TreeNode pre = null;
         Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+
         while (!stack.isEmpty() || cur != null) {
             while (cur != null) {
                 stack.push(cur);
                 cur = cur.left;
             }
             cur = stack.pop();
-            if (cur.right == null || cur.right == pre) {
-                ans.add(cur.val);
-                pre = cur;
-                cur = null;
-            } else {
-                stack.push(cur);
-                cur = cur.right;
-            }
+            ans.add(cur.val);
+            cur = cur.right;
         }
         return ans;
     }

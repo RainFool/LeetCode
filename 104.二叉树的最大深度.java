@@ -29,24 +29,29 @@ import apple.laf.JRSUIUtils.Tree;
 class Solution {
 
     public int maxDepth(TreeNode root) {
-        if (root == null)
-            return 0;
-        Queue<TreeNode> stack = new LinkedList<>();
-        stack.offer(root);
-        int depth = 0;
-        while (!stack.isEmpty()) {
-            int size = stack.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode cur = stack.poll();
-                if (cur.left != null)
-                    stack.offer(cur.left);
-                if (cur.right != null)
-                    stack.offer(cur.right);
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        TreeNode pre = null;
+        int max = 0;
+        int dep = 0;
+        while (!stack.isEmpty() || cur != null) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+                dep++;
             }
-            depth++;
+            cur = stack.pop();
+            if (cur.right == null || pre == cur.right) {
+                max = Math.max(max, dep);
+                dep--;
+                pre = cur;
+                cur = null;
+            } else {
+                stack.push(cur);
+                cur = cur.right;
+            }
         }
-        return depth;
+        return max;
     }
-
 }
 // @lc code=end
